@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>GAME ĐOÁN SỐ</h2>
+<!--// CÁCH 1-->
+<!--<label>-->
+<!--    Đoán số từ 1 đến 10-->
+<!--</label>-->
+<!--<input id="number" type="number">-->
+<!--<button id="abc" onclick="doanso()"> Đoán xem</button>-->
+<!--<p id="random" style="color: blue"></p>-->
+<!--<p id="count" style="color: red"></p>-->
+<!--<script>-->
+<!--    count = 3-->
+
+<!--    function doanso() {-->
+<!--        document.getElementById("abc").innerHTML = "đoán tiếp"-->
+<!--        let num = document.getElementById("number").value-->
+<!--        let random = Math.floor(Math.random() * 10 + 1)-->
+<!--        document.getElementById("random").innerHTML = "số trúng thưởng là: " + random-->
+<!--        if (num == random && count >= 0) {-->
+<!--            alert("bạn đã đoán đúng")-->
+<!--        } else {-->
+<!--            count&#45;&#45;-->
+<!--        }-->
+<!--        document.getElementById("count").innerHTML = "Xin hãy đoán tiếp, số lượt còn lại là: " + count-->
+<!--        if (count <= 0) {-->
+<!--            document.getElementById("count").innerHTML = "Bạn đã hết lượt chơi rồi"-->
+<!--            document.getElementById("abc").innerHTML = "chơi lại"-->
+<!--            document.getElementById("number").value = " "-->
+<!--            count = 3-->
+<!--            return-->
+<!--        }-->
+
+<!--    }-->
+<!--&lt;!&ndash;</script>-->
+<!--&ndash;&gt;-->
+
+<!--// CÁCH 2-->
+<!--<input id="n1" type = "number">-->
+<button id="choose">Chơi</button>
+<!--<p id="n2" style="color: blue"></p>-->
+<script>
+    document.getElementById("choose").onclick = function (choose) {
+        let num = +prompt('Mời bạn chọn đoán số trong khoảng từ 1 đến');
+        alert('Bạn được đoán 3 lần')
+        let randomnum = Math.floor(Math.random() * num);
+        let a = 2
+        for (let i = 0; i < 3; i++) {
+            let guess = +prompt('số bạn đoán là');
+            if (guess == randomnum && i <= 2) {
+                alert('Chúc mừng, bạn đã đoán đúng')
+                break;
+            } else if (i == 2 && guess != randomnum) {
+                alert('Chúc may mắn lần sau')
+                document.getElementById("choose").innerHTML = "Chơi lại"
+                break;
+
+            } else {
+               a -=i
+                alert('Mời đoán lại, số lượt còn lại là ' + a)
+
+            }
+        }
+    }
+
+
+</script>
+</body>
+
+</html>

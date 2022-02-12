@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>GAME ĐOÁN SỐ</h1>
+<button id='play'>CHƠI</button>
+
+<script>
+    document.getElementById('play').onclick = function play() {
+
+        let num = parseInt(prompt('Mời bạn chọn khoảng từ 0 đến'));
+
+        //chọn số ngẫu nhiên trong khoảng 0->num
+        let randomNum = Math.floor(Math.random() * num);
+
+        //tạo vòng lặp, người chơi được chọn tối đa 3 lần
+        for (let i = 0; i < 3; i++) {
+            let guess = parseInt(prompt('Mời bạn đoán số'));
+            if (i <= 2 && guess == randomNum) {
+                alert('Chúc mừng bạn đã đoán đúng!');
+                break;
+            } else if (i == 2 && guess != randomNum) {
+                alert('Chúc bạn may mắn lần sau!');
+                break;
+            } else {
+                alert('Sai rồi, mời bạn đoán lại');
+            }
+        }
+    }
+</script>
+</body>
+</html>
